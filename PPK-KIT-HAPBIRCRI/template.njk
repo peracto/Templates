@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="148mm" height="210mm" xml:space="preserve">
+    {%set $name      = sides[0].inputs[0] | nameCase %}
+    {%set $age       = sides[0].inputs[1] %}
+    {%set $message   = sides[0].inputs[2] %}
+    {%set $sentiment = 'Happy Birthday' %}
+    <style type="text/css">
+        .fill-white         {fill:#FFFFFF;}
+        .fill-back          {fill:#2f0e03;}
+        .side-bar-color     {fill:#0000ff}
+        .side-bar-message   {font-family:bite chocolate;font-size:9pt;fill:white;text-anchor:middle;;dominant-baseline:middle}
+        .name-message       {font-family:bite chocolate;font-size:20pt;fill:#603813;text-anchor:middle;dominant-baseline:middle}
+        .age-message        {font-family:cavolini;font-size:26pt;fill:#603813;text-anchor:middle;;dominant-baseline:middle}
+        .ingredients        {font-family:arial;font-size:7.5pt;text-anchor:middle}
+        .best-before        {font-family:arial;font-size:6pt;text-anchor:middle}
+        .personal-message   {font-family:arial;font-size:10pt;fill:black;text-anchor:middle;;dominant-baseline:middle}
+        .order-detail       {font-family:arial;font-size:10pt;text-anchor:middle;}
+        .barcode            {font-family:Code-39-Logitogo;font-size:12pt;text-anchor:middle;dominant-baseline:middle}
+    </style>
+
+    <!-- Solid background fill -->
+    <rect x="0" y="0" class="fill-back" width="100%" height="100%"></rect>
+
+    <!-- Sticky Bit -->
+    <rect x="5mm" y="0" class="fill-white" width="138mm" height="15mm"></rect>
+
+    <!-- Side Flash 1 -->
+    <svg x="0mm" y="30mm" width="100%" height="10mm">
+        <rect x="0" y="0" class="side-bar-color" width="100%" height="100%"></rect>
+        <text transform="rotate(-180 50% 50%)" x="50%" y="50%" class="side-bar-message">{{ $sentiment }} {{ $name }}</text>
+    </svg>
+
+    <!-- Frontface Image -->
+    <svg x="0mm" y="40mm" width="100%" height="80mm">
+        <image x="0mm" y="0mm" width="100%" height="100%" xlink:href="file://{{basePath}}/front.png"></image>
+        <!-- Persons age -->
+        <text x="132mm" y="68mm" class="age-message">{{ $age }}</text>
+        <!-- Persons name -->
+        <text  transform="rotate(-15 105mm 45mm)" x="105mm" y="45mm" class="name-message" scale-width="6cm">{{ $name }}</text>
+    </svg>
+
+    <!-- Side Flash 2 -->
+    <svg x="0mm" y="120mm" width="100%" height="10mm">
+        <rect x="0" y="0" class="side-bar-color" width="100%" height="100%"></rect>
+        <text x="50%" y="50%" class="side-bar-message">{{ $sentiment }} {{ $name }}</text>
+    </svg>
+
+    <!-- Personal Message -->
+    <svg x="5mm" y="135mm" width="138mm" height="15mm">
+        <rect x="0" y="0" width="100%" height="100%" rx="15" class="fill-white"></rect>
+        {% if $message and $message.length > 0 %}
+            <text x="50%" y="50%" class="personal-message" scale-width="130mm">{{ $message }}</text>
+        {% else %}.
+            <text x="50%" y="50%" class="personal-message">{{ $sentiment }}</text>
+        {% endif %}
+    </svg>
+
+    <!-- Ingredients -->
+    <svg x="5mm" y="152mm" width="138mm" height="45mm">
+        <rect x="0" y="0" width="100%" height="100%" rx="15" class="fill-white"></rect>
+        <text x="5mm" y="12mm" class="ingredients">
+            <tspan class="ingredients" x="4.5cm" dy="0">Milk chocolate with crispy cereal pieces (6.0%).</tspan>
+            <tspan class="ingredients" x="4.5cm" dy="1.2em">Ingredients: sugar, cocoa butter, skimmed milk powder, cocoa mass,</tspan>
+            <tspan class="ingredients" x="4.5cm" dy="1.2em">milk fat, whey powder (from milk), lactose, rice flour, wholemeal wheat</tspan>
+            <tspan class="ingredients" x="4.5cm" dy="1.2em">flour, emulsifiers (soya lecithin, E471), malted wheat flour, salt,</tspan>
+            <tspan class="ingredients" x="4.5cm" dy="1.2em">rapeseed oil, natural vanilla extract. (May contain: peanut,</tspan>
+            <tspan class="ingredients" x="4.5cm" dy="1.2em">hazelnut, almond). Milk chocolate contains milk solids 14%</tspan>
+            <tspan class="ingredients" x="4.5cm" dy="1.2em">minimum and cocoa solids 25% minimum.</tspan>
+            <tspan class="ingredients" x="4.5cm" dy="1.2em">Suitable for Vegetarians</tspan>
+        </text>
+    </svg>
+
+    <!-- Logo + Barcode -->
+    <svg x="100mm" y="157mm" width="4cm" height="45mm">
+        <image x="0mm" y="0mm" width="100%" height="1cm" xlink:href="file://{{basePath}}/../common/perfecto-logo.png" _cached="true"></image>
+        <!-- Best Before -->
+        <text x="50%" y="12mm" class="best-before">Best Before: {{ orderDate | addMonths(7) | formatDate }}</text>
+        <!-- Barcode -->
+        <text class="barcode" x="50%" y="20mm" fill="black">*{{orderNumber}}*</text>
+        <!-- Item Quantities -->
+        <text x="50%" y="29mm" class="order-detail" {% if designQuantity > 1 or totalOrderQuantity > 1 %}fill="red"{% endif %}>
+            {{orderNumber}}-{{designIndex}}-{{designQuantity}}-{{totalOrderQuantity}}
+        </text>
+    </svg>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="8.27in" height="5.84in"  xml:space="preserve">
+  {% set $age      = sides[0].inputs[0] %}
+  <defs>
+    <symbol id="pic" viewBox="0 0 320 320">
+      <image href="{{templatePath}}/QUACUSMUG.png" width="320" height="320"></image>
+      <text x="160" y="175" style="font-family:'Poor Richard', 'Brush Script MT';font-size:42pt">{% if variant.age %}{{ variant.age }}{% else %}{{$age}}{% endif %}</text>
+
+    </symbol>
+
+    <symbol id="flip" viewBox="0 0 320 320">
+      <use href="#pic" width="320" height="320" transform="translate(320 0),scale(-1,1)" />
+    </symbol>  
+
+  </defs>    
+  
+  <use x="0.5cm" y="0.5cm"  href="#flip" width="8.5cm" height="8.5cm" />
+  <use x="11cm" y="0.5cm" href="#flip" width="8.5cm" height="8.5cm" />
+
+  <svg x="0.5cm" y="10cm" width="10.5cm" height="5cm" preserveAspectRatio="none">
+    <use x="0cm" y="0" width="3.5cm" height="3.5cm" href="#pic" />
+    <rect x="0cm" y="0" width="3.5cm" height="3.5cm" fill="none" stroke="black" stroke-width="0.5px"/>
+  </svg>
+
+  <svg x="9cm" y="10cm" width="12cm" height="5cm" preserveAspectRatio="none">
+    <text x="0" y="0cm" style="font-family: Calibri;font-size:8pt">
+      <tspan x="0cm" dy="1.00em">Order Number:</tspan><tspan x="3.5cm">{{orderNumber}}</tspan>
+      <tspan x="0cm" dy="1.25em">Order Part SKUs:</tspan><tspan x="3.5cm">{{ product.additions | join('/', "sku") }}</tspan>
+      <tspan x="0cm" dy="1.25em">Channel Order Number:</tspan><tspan x="3.5cm">{{order.orderChannel}}/{{channelOrderRef}}</tspan>
+      <tspan x="0cm" dy="1.25em">Design Quantity:</tspan><tspan x="3.5cm" {% if designQuantity > 1 or totalOrderQuantity > 1 %}fill="red"{% endif %}>{{designIndex}} of {{designQuantity}} of total {{totalOrderQuantity}}</tspan>
+      <tspan x="0cm" dy="1.25em">Shipping:</tspan><tspan x="3.5cm" >{{order.shippingType}} / {{order.shippingServiceCode}}</tspan>
+      <tspan x="0cm" dy="1.25em">Order Date:</tspan><tspan x="3.5cm">{{order.orderDate | formatDate }}</tspan>
+      <tspan x="0cm" dy="1.25em">Job Name:</tspan><tspan x="3.5cm">{{jobName}}</tspan>
+    </text>
+    <text style="font-family:Code-39-Logitogo;font-size:12pt;text-anchor:middle;dominant-baseline:middle" x="1cm" y="3.5cm" fill="black">*{{orderNumber}}*</text>
+  </svg>
+</svg>

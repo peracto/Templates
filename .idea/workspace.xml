@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a968555a-10d2-46da-8320-e3c35c4aa498" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1frApsiVD2vKLzDDQYEj2I66KHh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/MUG-QUARANT" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/MUG-QUARANT" />
+      <recent name="$PROJECT_DIR$/TICKET-GENERIC" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/CHOC-MALHAPEAS" />
+      <recent name="$PROJECT_DIR$/CHOC-GALHAPBIR" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a968555a-10d2-46da-8320-e3c35c4aa498" name="Default Changelist" comment="" />
+      <created>1596966023230</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596966023230</updated>
+      <workItem from="1596966024279" duration="2737000" />
+      <workItem from="1596974664943" duration="65000" />
+      <workItem from="1596974740124" duration="1377000" />
+      <workItem from="1597080729327" duration="742000" />
+      <workItem from="1597131540187" duration="9475000" />
+      <workItem from="1597216340857" duration="1213000" />
+      <workItem from="1597313515134" duration="6605000" />
+      <workItem from="1597381156655" duration="8791000" />
+      <workItem from="1597475391508" duration="5966000" />
+      <workItem from="1597559866960" duration="4553000" />
+      <workItem from="1597653571062" duration="3812000" />
+      <workItem from="1597820394737" duration="3595000" />
+      <workItem from="1597989583780" duration="12516000" />
+      <workItem from="1598024853696" duration="3943000" />
+      <workItem from="1598073439879" duration="1239000" />
+      <workItem from="1598078315771" duration="5397000" />
+      <workItem from="1598190712799" duration="6461000" />
+      <workItem from="1598272062403" duration="5000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="822" y="479" key="SettingsEditor" timestamp="1596974818493">
+      <screen x="64" y="23" width="2496" height="1417" />
+    </state>
+    <state x="822" y="479" key="SettingsEditor/64.23.2496.1417/2560.23.2560.1417@64.23.2496.1417" timestamp="1596974818493" />
+    <state x="233" y="23" width="2053" height="1398" key="dock-window-1" timestamp="1598258508222">
+      <screen x="64" y="23" width="2496" height="1417" />
+    </state>
+    <state x="233" y="23" width="2053" height="1398" key="dock-window-1/64.23.2496.1417/2560.23.2560.1417@2560.23.2560.1417" timestamp="1598258508222" />
+    <state x="2560" y="23" width="1857" height="1398" key="dock-window-1/64.23.2496.1417/2560.23.2560.1417@64.23.2496.1417" timestamp="1596968178523" />
+    <state x="64" y="23" width="2053" height="1398" key="dock-window-2" timestamp="1598260445115">
+      <screen x="64" y="23" width="2496" height="1417" />
+    </state>
+    <state x="64" y="23" width="2053" height="1398" key="dock-window-2/64.23.2496.1417/2560.23.2560.1417@2560.23.2560.1417" timestamp="1598260445115" />
+    <state x="2594" y="23" width="1857" height="1398" key="dock-window-2/64.23.2496.1417/2560.23.2560.1417@64.23.2496.1417" timestamp="1596968178524" />
+    <state x="279" y="23" width="2053" height="1398" key="dock-window-3" timestamp="1598263058163">
+      <screen x="64" y="23" width="2496" height="1417" />
+    </state>
+    <state x="279" y="23" width="2053" height="1398" key="dock-window-3/64.23.2496.1417/2560.23.2560.1417@2560.23.2560.1417" timestamp="1598263058163" />
+    <state x="2560" y="23" width="1857" height="1398" key="dock-window-3/64.23.2496.1417/2560.23.2560.1417@64.23.2496.1417" timestamp="1596968178524" />
+    <state x="3637" y="628" key="run.anything.popup" timestamp="1597140516872">
+      <screen x="2560" y="23" width="2560" height="1417" />
+    </state>
+    <state x="3637" y="628" key="run.anything.popup/64.23.2496.1417/2560.23.2560.1417@2560.23.2560.1417" timestamp="1597140516872" />
+  </component>
+</project>

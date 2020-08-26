@@ -1,0 +1,85 @@
+{
+  "cus": {
+  },
+  "cus-choc": {
+  },
+  "cus-choc-galhapbir": {
+    "image": "face.png"
+  },
+  "cus-choc-galhapbir-coocru": {
+    "sidebarColor": "#c53490",
+    "ingredients": [
+      "Milk chocolate with cookie pieces (8.0%).",
+      "Ingredients: sugar, cocoa butter, skimmed milk powder, milk fat,",
+      "cocoa mass, lactose, whey powder (from milk), wheat flour, cocoa powder,",
+      "emulsifier (soya lecithin), palm fat, sunflower oil, glucose syrup,",
+      "natural colour (E153), salt, raising agent (E503), natural vanilla extract.",
+      "(May contain: peanut, hazelnut, almond). Milk chocolate",
+      "contains milk solids 14% minimum and cocoa solids 25% minimum.",
+      "Suitable for Vegetarians."
+    ]
+  },
+  "cus-choc-galhapbir-cri": {
+    "sidebarColor": "#0000ff",
+    "ingredients": [
+      "Milk chocolate with crispy cereal pieces (6.0%).",
+      "Ingredients: sugar, cocoa butter, skimmed milk powder, cocoa mass,",
+      "milk fat, whey powder (from milk), lactose, rice flour, wholemeal wheat",
+      "flour, emulsifiers (soya lecithin, E471), malted wheat flour, salt,",
+      "rapeseed oil, natural vanilla extract. (May contain: peanut,",
+      "hazelnut, almond). Milk chocolate contains milk solids 14%",
+      "minimum and cocoa solids 25% minimum",
+      "Suitable for Vegetarians"
+    ]
+  },
+  "cus-choc-galhapbir-honcri": {
+    "sidebarColor": "#efa536",
+    "ingredients": [
+      "Milk chocolate with crisp honeycomb pieces (8.0%).",
+      "Ingredients: sugar, cocoa butter, skimmed milk powder, cocoa mass,",
+      "milk fat, lactose, whey powder (from milk), emulsifier (soya lecithin),",
+      "rice starch, raising agent (E500), natural vanilla extract. (May",
+      "contain: peanut, hazelnut, almond, wheat). Milk chocolate",
+      "contains milk solids 14% minimum and cocoa solids 25% minimum.",
+      "Suitable for Vegetarians"
+    ]
+  },
+  "cus-choc-galhapbir-salcar": {
+    "sidebarColor": "#40E0D0",
+    "ingredients": [
+      "Milk chocolate with cookie pieces (8.0%).",
+      "Ingredients: sugar, cocoa butter, skimmed milk powder, milk fat,",
+      "cocoa mass, lactose, whey powder (from milk), wheat flour, cocoa powder,",
+      "emulsifier (soya lecithin), palm fat, sunflower oil, glucose syrup,",
+      "natural colour (E153), salt, raising agent (E503), natural vanilla extract.",
+      "(May contain: peanut, hazelnut, almond). Milk chocolate",
+      "contains milk solids 14% minimum and cocoa solids 25% minimum.",
+      "Suitable for Vegetarians"
+    ]
+  },
+  "cus-choc-galhapbir-smocar": {
+    "sidebarColor": "#f6e486",
+    "ingredients": [
+      "Milk chocolate with a soft caramel filling (30%).",
+      "Ingredients: sugar, glucose syrup, skimmed milk powder, cocoa butter,",
+      "milk fat, cocoa mass, lactose, whey powder (from milk), palm fat,",
+      "emulsifier (soya lecithin), salt, natural vanilla extract. (May",
+      "contain: peanut, hazelnut, almond, wheat). Milk chocolate",
+      "(May contain: peanut, hazelnut, almond). Milk chocolate",
+      "contains milk solids 14% minimum.",
+      "Suitable for Vegetarians"
+    ]
+  },
+  "cus-choc-galhapbir-smomil": {
+    "sidebarColor": "#2f0e03",
+    "ingredients": [
+      "Milk chocolate.",
+      "Ingredients: sugar, cocoa butter, skimmed milk powder,",
+      "cocoa mass, milk fat, lactose and protein from whey (from milk),",
+      "whey powder (from milk), palm fat, emulsifier (soya lecithin),",
+      "natural vanilla extract. Milk chocolate contains milk solids 14%",
+      "minimum and cocoa solids 25% minimum.",
+      "Suitable for Vegetarians"
+    ]
+  }
+}

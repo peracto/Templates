@@ -1,0 +1,10 @@
+{
+  "sys-ticket-generic": {
+    "hasImages": false
+  },
+  "sys-ticket-generic-image": {
+    "hasImages": true
+  },
+  "sys-ticket-generic-simple": {
+  }
+}

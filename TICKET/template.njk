@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="210mm" height="148.5mm">
+  <defs>
+    {% macro createSurface($i, $area, $child)  %}
+    <symbol id="pic{{ $i }}" viewBox="0 0 {{$area.Dimensions.width*8}} {{$area.Dimensions.height*8}}">
+      <svg viewBox="-{{$area.Position.x*8}} -{{$area.Position.y*8}} {{$area.Dimensions.width*8}} {{$area.Dimensions.height*8}}">
+        <image href="{% if $arg.svgImage and $arg.svgImage.length>0 %}{{$area.svgImage}}{% else %}{{ $child.svg }}{% endif %}" width="3200" height="3200" />
+      </svg>
+    </symbol>
+    <symbol id="pic{{ $i }}Flip" viewBox="0 0 {{$area.Dimensions.width*8}} {{$area.Dimensions.height*8}}">
+      <use href="#pic{{ $i }}" width="{{$area.Dimensions.width*8}}" height="{{$area.Dimensions.height*8}}" transform="translate({{$area.Dimensions.width*8}} 0),scale(-1,1)" />
+    </symbol>
+    {% endmacro %}
+    {{ createSurface(1, surfaces[0].areas[0], customisation.children[0] ) }}
+    {% if surfaces.length > 1 %}
+    {{ createSurface(2, surfaces[1].areas[0], customisation.children[1] ) }}
+    {% endif %}
+  </defs>
+
+  <svg x="0.5cm" y="10cm" width="9cm" height="5cm" preserveAspectRatio="none">
+    <use href="#pic1" x="0" y="0"   width="3cm" height="3cm" />
+    <rect x="0cm" y="0" width="3cm" height="3cm" fill="none" stroke="black" stroke-width="0.5px"/>
+    {% if surfaces.length > 1 %}
+      <use href="#pic2" x="4cm" y="0" width="3cm" height="3cm" />
+      <rect x="4cm" y="0" width="3cm" height="3cm" fill="none" stroke="black" stroke-width="0.5px"/>
+    {% endif %}
+  </svg>
+
+  <svg x="9cm" y="10cm" width="12cm" height="5cm" preserveAspectRatio="none">
+    <text x="0" y="0cm" style="font-family: Calibri;font-size:8pt">
+      <tspan x="0cm" dy="1.00em">Order Number:</tspan><tspan x="3.5cm">{{orderNumber}}</tspan>
+      <tspan x="0cm" dy="1.25em">Order Part SKUs:</tspan><tspan x="3.5cm">{{ product.additions | join('/', "sku") }}</tspan>
+      <tspan x="0cm" dy="1.25em">Channel Order Number:</tspan><tspan x="3.5cm">{{order.orderChannel}}/{{channelOrderRef}}</tspan>
+      <tspan x="0cm" dy="1.25em">Design Quantity:</tspan><tspan x="3.5cm" {% if designQuantity > 1 or totalOrderQuantity > 1 %}fill="red"{% endif %}>{{designIndex}} of {{designQuantity}} of total {{totalOrderQuantity}}</tspan>
+      <tspan x="0cm" dy="1.25em">Shipping:</tspan><tspan x="3.5cm" >{{order.shippingType}} / {{order.shippingServiceCode}}</tspan>
+      <tspan x="0cm" dy="1.25em">Order Date:</tspan><tspan x="3.5cm">{{order.orderDate | formatDate }}</tspan>
+      <tspan x="0cm" dy="1.25em">Job Name:</tspan><tspan x="3.5cm">{{jobName}}</tspan>
+    </text>
+    <text style="font-family:Code-39-Logitogo;font-size:20pt;text-anchor:middle;dominant-baseline:middle" x="1cm" y="3.5cm" fill="black">*{{orderNumber}}*</text>
+  </svg>
+<!--
+  <line x1="0" y1="100mm" x2="5mm" y2="100mm" stroke="black" stroke-width="1px"/>
+  <line x1="0" y1="148mm" x2="3mm" y2="148mm" stroke="black" stroke-width="1px"/>
+  <line x1="207mm" y1="100mm" x2="210mm" y2="100mm" stroke="black" stroke-width="1px"/>
+  <line x1="207mm" y1="148mm" x2="210mm" y2="148mm" stroke="black" stroke-width="1px"/>
+-->
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="210mm" height="148.5mm">
+  <defs>
+    {{ for $i in 0..1; $area=surfaces[$i].areas[0];  }}
+    <symbol id="pic{{ $i+1 }}" viewBox="0 0 {{$area.width*8}} {{$area.height*8}}">
+      <svg viewBox="-{{$area.x*8}} -{{$area.y*8}} {{$area.width*8}} {{$area.height*8}}">
+        <image href="{{$area.image_url}}" width="3200" height="3200" />
+      </svg>
+    </symbol>
+    <symbol id="pic{{ $i+1 }}Flip" viewBox="0 0 {{$area.width*8}} {{$area.height*8}}">
+      <use href="#pic{{ $i+1 }}" width="{{$area.width*8}}" height="{{$area.height*8}}" transform="translate({{$area.width*8}} 0),scale(-1,1)" />
+    </symbol>
+    {{ end; }}
+  </defs>
+
+  <use x="0.5cm" y="0.5cm"  href="#pic2Flip" width="8.5cm" height="8.5cm" />
+  <use x="11cm" y="0.5cm" href="#pic1Flip" width="8.5cm" height="8.5cm" />
+
+  <!--
+  <rect x="0.5cm" y="0.5cm" width="8.5cm" height="8.5cm" fill="none" stroke="black" stroke-size="1px"/>
+  <rect x="11cm" y="0.5cm" width="8.5cm" height="8.5cm" fill="none" stroke="black" stroke-size="1px"/>
+  -->
+
+  <svg x="0.5cm" y="10cm" width="9cm" height="5cm" preserveAspectRatio="none">
+    <use href="#pic1" x="0" y="0"   width="3cm" height="3cm" />
+    <use href="#pic2" x="4cm" y="0" width="3cm" height="3cm" />
+    <rect x="0cm" y="0" width="3cm" height="3cm" fill="none" stroke="black" stroke-width="0.5px"/>
+    <rect x="4cm" y="0" width="3cm" height="3cm" fill="none" stroke="black" stroke-width="0.5px"/>
+  </svg>
+
+  <svg x="9cm" y="10cm" width="12cm" height="5cm" preserveAspectRatio="none">
+    <text x="0" y="0cm" style="font-family: Calibri;font-size:10px">
+      <tspan x="0cm" dy="1.00em">Order Number:</tspan><tspan x="3.5cm">{{order_detail.order_number}}</tspan>
+      <tspan x="0cm" dy="1.25em">Order Part SKUs:</tspan><tspan x="3.5cm">{{order_detail.sub_part_skus | join_string '/'}}</tspan>
+      <tspan x="0cm" dy="1.25em">Channel Order Number:</tspan><tspan x="3.5cm">{{order_detail.order_channel}}/{{order_detail.channel_order_reference}}</tspan>
+      <tspan x="0cm" dy="1.25em">Design Quantity:</tspan><tspan x="3.5cm" {{ if order_detail.design_quantity > 1 || order_detail.order_line_quantity>1 }}fill="red"{{end;}}>{{order_detail.design_item_index}} of {{order_detail.design_quantity}} of total {{order_detail.order_line_quantity}}</tspan>
+      <tspan x="0cm" dy="1.25em">Shipping:</tspan><tspan x="3.5cm" >{{order_detail.shipping_type}} / {{order_detail.shipping_service_code}}</tspan>
+      <tspan x="0cm" dy="1.25em">Order Date:</tspan><tspan x="3.5cm">{{order_detail.order_date }}</tspan>
+      <tspan x="0cm" dy="1.25em">Job Name:</tspan><tspan x="3.5cm">{{job_name}}</tspan>
+
+      {{ for $message in order_detail.messages }}
+      <tspan x="0cm" dy="1.25em">Message {{for.index+1}}:</tspan><tspan x="3.5cm">{{$message}}</tspan>
+      {{ end; }}
+
+    </text>
+    <barcode x="1cm" y="3.5cm" width="8cm" height="1cm" fill="white" fill-opacity="1" stroke-opacity="1" stroke="black" stroke-width="0.5" value="{{order_detail.order_number}}"/>
+  </svg>
+<!--
+  <line x1="0" y1="100mm" x2="5mm" y2="100mm" stroke="black" stroke-width="1px"/>
+  <line x1="0" y1="148mm" x2="3mm" y2="148mm" stroke="black" stroke-width="1px"/>
+  <line x1="207mm" y1="100mm" x2="210mm" y2="100mm" stroke="black" stroke-width="1px"/>
+  <line x1="207mm" y1="148mm" x2="210mm" y2="148mm" stroke="black" stroke-width="1px"/>
+-->
+</svg>

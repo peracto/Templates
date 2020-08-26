@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="148mm" height="210mm" xml:space="preserve">
+    <style type="text/css">
+        .fill-white{fill:#FFFFFF;}
+        .fill-back{fill:#000000;}
+        .ingredients{font-family:arial;font-size:8pt;text-anchor:middle}
+        .side-bar-color{fill:#f6e486}
+        .side-bar-message{font-family:bite chocolate;font-size:9pt;fill:white;text-anchor:middle;;dominant-baseline:middle}
+        .best-before{font-family:arial;font-size:10px;text-anchor:middle}
+        .age-message{font-family:Brush Script MT;font-size:15pt;fill:#000000;text-anchor:middle;;dominant-baseline:middle}
+        .name-message{font-family:bite chocolate;font-size:16pt;fill:#ffffff;text-anchor:middle;dominant-baseline:middle}
+        .year-message{font-family:Berlin Sans FB;fill:#000000;font-size:35pt;text-anchor:middle}
+        .personal-message{font-family:arial;font-size:8pt;fill:black;text-anchor:middle;;dominant-baseline:middle}
+        .order-detail{font-family:arial;fill:#000000;font-size:8pt;text-anchor:middle;}
+        .barcode {font-family::Code-39-Logitogo;font-size:18pt;text-anchor:middle;dominant-baseline:middle}
+
+    </style>
+<g  xtransform="translate(100% 0) scale(-1 1)">
+<!-- Solid background fill -->
+<rect x="0" y="0" class="fill-back" width="100%" height="100%"></rect>
+<!-- Sticky Bit -->
+<rect x="5mm" y="0" class="fill-white" width="138mm" height="15mm"></rect>
+<!-- Side Flash 1 -->
+<svg x="0mm" y="30mm" width="100%" height="10mm">
+     <rect x="0" y="0" class="side-bar-color" width="100%" height="100%"></rect> 
+    <text transform="rotate(-180 50% 50%)" x="50%" y="50%" class="side-bar-message"></text>
+</svg>
+<!-- Frontface Image -->
+<svg x="0mm" y="40mm" width="100%" height="80mm">
+    <image x="0mm" y="0mm" width="100%" height="100%" xlink:href="file:/{{template_folder}}\front.png"></image>
+    <!-- Persons age -->
+    <text   x="50%" y="45mm" class="age-message">{{surfaces[0].areas[2].text | html.escape}} years of being</text>
+    <!-- Persons name -->
+    <text   x="50%" y="72mm" class="name-message">{{surfaces[0].areas[0].text| html.escape}}</text>
+    <!-- Persons year of birth -->
+    <text   x="50%" y="33mm" class="year-message">{{surfaces[0].areas[1].text| html.escape}}</text>
+</svg>
+<!-- Side Flash 2 -->
+<svg x="0mm" y="120mm" width="100%" height="10mm">
+    <rect x="0" y="0" class="side-bar-color" width="100%" height="100%"></rect>
+    <text x="50%" y="50%" class="side-bar-message"></text>
+</svg>
+<!-- Personal Message -->
+<svg x="5mm" y="135mm" width="138mm" height="15mm">
+    <rect x="0" y="0" width="100%" height="100%" rx="15" class="fill-white"></rect>
+    {{ if !surfaces[0].areas[3].text.empty? }}
+    <text x="50%" y="50%" class="personal-message">{{surfaces[0].areas[3].text| html.escape}}</text>
+    {{ else }}.
+    <text x="50%" y="50%" class="personal-message">Happy Birthday</text>
+    {{ end }}
+</svg>
+
+<!-- Ingredients -->
+<svg x="5mm" y="152mm" width="138mm" height="45mm">
+    <rect x="0" y="0" width="100%" height="100%" rx="15" class="fill-white"></rect>
+    <text x="5mm" y="12mm" class="ingredients">
+       <tspan class="ingredients" x="4.5cm" dy="0">Milk chocolate with a soft caramel filling (30%).</tspan>
+        <tspan class="ingredients" x="4.5cm" dy="1.2em">Ingredients: sugar, glucose syrup, skimmed milk powder, cocoa butter,</tspan>
+        <tspan class="ingredients" x="4.5cm" dy="1.2em">milk fat, cocoa mass, lactose, whey powder (from milk), palm fat,</tspan>
+        <tspan class="ingredients" x="4.5cm" dy="1.2em">emulsifier (soya lecithin), salt, natural vanilla extract. (May</tspan>
+        <tspan class="ingredients" x="4.5cm" dy="1.2em">contain: peanut, hazelnut, almond, wheat). Milk chocolate</tspan>
+        <tspan class="ingredients" x="4.5cm" dy="1.2em">(May contain: peanut, hazelnut, almond). Milk chocolate</tspan>
+        <tspan class="ingredients" x="4.5cm" dy="1.2em">contains milk solids 14% minimum.</tspan>
+        <tspan class="ingredients" x="4.5cm" dy="1.2em">Suitable for Vegetarians</tspan>
+    </text>
+</svg>
+
+<!-- Logo + Barcode -->
+<svg x="100mm" y="157mm" width="4cm" height="45mm">
+    <image x="0mm" y="0mm" width="100%" height="1cm" xlink:href="file://{{template_folder}}\..\common\perfecto-logo.png"></image>
+            <!-- Best Before -->
+    <text x="50%" y="12mm" class="best-before">Best Before: {{order_detail.order_date | date.add_months 7 }}</text>
+
+    <text class="barcode" x="50%" y="20mm" fill="black">*{{order_detail.order_number}}*</text>
+
+    <text x="50%" y="29mm" class="order-detail" {{ if order_detail.design_quantity > 1 || order_detail.quantity_in_order > 1 }}fill="red"{{end;}}>
+    {{order_detail.order_number}}-{{order_detail.design_item_index}}-{{order_detail.design_quantity}}-{{order_detail.order_line_quantity}}
+    </text>
+</svg>
+
+</g>
+</svg>
